@@ -45,7 +45,8 @@
             o.pos = UnityObjectToClipPos(v.vertex);
             //float3 worldNormal = normalize(UnityObjectToWorldNormal(v.normal));
             
-            float3 N = mul(UNITY_MATRIX_MV,v.normal);
+           //float3 N = mul(UNITY_MATRIX_MV,v.normal);
+            float3 N = UnityObjectToViewPos(v.normal);
             float2 offset = TransformViewToProjection(N.xy);
             o.pos.xy +=offset * _Outline *0.005;
             o.tex = v.texcoord;    

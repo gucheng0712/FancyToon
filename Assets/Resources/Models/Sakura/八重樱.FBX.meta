@@ -1,11 +1,69 @@
 fileFormatVersion: 2
 guid: 6136f08775e41b5409bc7e21c2eaf4f6
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable:
-  - first:
-      74: 1827226128182048838
-    second: Take 001
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Avatar_Sakura_C1_YS
+    100002: Avatar_Yae_sakura_Eye_L
+    100004: Avatar_Yae_sakura_Eye_R
+    100006: Avatar_Yae_sakura_Mouth
+    100008: Body01
+    100010: body_B01
+    100012: Face01
+    100014: group1
+    100016: Hair01
+    100018: Weapon01
+    100020: WeaponL
+    100022: //RootNode
+    400000: Avatar_Sakura_C1_YS
+    400002: Avatar_Yae_sakura_Eye_L
+    400004: Avatar_Yae_sakura_Eye_R
+    400006: Avatar_Yae_sakura_Mouth
+    400008: Body01
+    400010: body_B01
+    400012: Face01
+    400014: group1
+    400016: Hair01
+    400018: Weapon01
+    400020: WeaponL
+    400022: //RootNode
+    2100000: Avatar_Sakura_C1_Material_Face
+    2100002: Avatar_Sakura_C1_Material_Body 1
+    2100004: Avatar_Sakura_C1_Material_Body 3
+    2100006: Avatar_Sakura_Material_Eye_R
+    2100008: Avatar_Sakura_Material_Eye_L
+    2100010: Avatar_Sakura_Material_Mouth
+    2100012: Avatar_Sakura_C1_Material_Hair
+    2100014: Kanata_M1_13_1_Material
+    2300000: Avatar_Yae_sakura_Eye_L
+    2300002: Avatar_Yae_sakura_Eye_R
+    2300004: Avatar_Yae_sakura_Mouth
+    2300006: Body01
+    2300008: body_B01
+    2300010: Face01
+    2300012: Hair01
+    2300014: Weapon01
+    2300016: WeaponL
+    3300000: Avatar_Yae_sakura_Eye_L
+    3300002: Avatar_Yae_sakura_Eye_R
+    3300004: Avatar_Yae_sakura_Mouth
+    3300006: Body01
+    3300008: body_B01
+    3300010: Face01
+    3300012: Hair01
+    3300014: Weapon01
+    3300016: WeaponL
+    4300000: Face01
+    4300002: Body01
+    4300004: Avatar_Yae_sakura_Eye_R
+    4300006: body_B01
+    4300008: Weapon01
+    4300010: Avatar_Yae_sakura_Eye_L
+    4300012: Avatar_Yae_sakura_Mouth
+    4300014: Hair01
+    4300016: WeaponL
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -38,7 +96,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Take 001
       takeName: Take 001
-      internalID: 1827226128182048838
       firstFrame: 0
       lastFrame: 100
       wrapMode: 0
@@ -78,19 +135,18 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.38099998
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -99,11 +155,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human:
     - boneName: Avatar_Sakura_C1_YS
       humanName: Hips
@@ -189,7 +244,6 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.38099998
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1

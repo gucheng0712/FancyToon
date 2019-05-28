@@ -1,0 +1,22 @@
+What's New to RealToon V5.0.3 Update (March 2019)
+=====================================
+[New]
+
+- Transparent Threshold. [New Option/Feature]
+*Adjust the Transparent/Alpha Threshold of the main texture
+
+- Use Traditonal Light Blend. [New Option/Feature] [For LWRP Version]
+*If you want to use the traditional light blending.
+
+[Other New]
+- Added "RealToon (UserGuide).pdf" button.
+*So you can access the file right away.
+
+- Added "Show/Hide UI".
+*If you want to hide options/properties UI.
+
+- Can disable/enable Normal Map.
+*You might need to re-enable this if you this Option/Feature.
+
+[Other Notes]
+* If you encounter some problems or need help just contact by email.
