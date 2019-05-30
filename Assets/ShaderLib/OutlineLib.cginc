@@ -26,8 +26,9 @@ v2f outline_vert(a2v v)
 	
 	// MV transform points from object space to view space
 	float3 pos = UnityObjectToViewPos(v.vertex);
-
-	float factor = smoothstep(_Nearest_Distance, _Farthest_Distance, distance(pos.xyz, _WorldSpaceCameraPos.xyz));
+   
+    float dist2Cam = distance(pos.xyz, _WorldSpaceCameraPos.xyz);
+	float factor = smoothstep(_Nearest_Distance, _Farthest_Distance, dist2Cam);
 	factor = clamp(factor, 0.1, 0.3);
 
 

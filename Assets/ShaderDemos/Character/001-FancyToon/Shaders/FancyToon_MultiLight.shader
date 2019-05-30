@@ -22,6 +22,7 @@ Shader "Toon/FancyToon_MultiLight"
 
 		[Header(Specular Settings)]
 		_SpecularColor("Specular Color",Color) = (1,1,1,1)
+       _SpecularRange("Specular Range",Range(0.001,5)) = 0.1
 		_SpecularIntensity("Specular Intensity",Range(0, 1)) = 0.01
 		_SpecularOffset("Specular Offset",Range(0.5,1)) = 0.6
 
@@ -43,6 +44,7 @@ Shader "Toon/FancyToon_MultiLight"
 
 		[Header(Other Settings)]
 		_Saturation("Color Saturation",Range(0.5,3)) = 1.0
+        
 	}
 	SubShader
 	{
@@ -66,6 +68,7 @@ Shader "Toon/FancyToon_MultiLight"
 		{
 			Tags{ "LightMode" = "ForwardBase" }
 			Cull[_Cull]
+     
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
@@ -73,97 +76,25 @@ Shader "Toon/FancyToon_MultiLight"
 			//#pragma multi_compile_fwdbase
 			#pragma target 3.0
 
-			#include "Lighting.cginc"
-			#include "UnityCG.cginc"
-			#include "AutoLight.cginc"
-
-			sampler2D _MainTex; float4 _MainTex_ST;
-			float _Smoothness;
-			float _Shininess;
-			float4 _RampColor;
-			float4 _MainColor;
-			fixed4 _SpecularColor;
-			fixed _SpecularIntensity;
-			fixed _SpecularOffset;
-			fixed _ShadowIntensity;
-			float _Saturation;
-
-			struct a2v
-			{
-				float4 vertex : POSITION;
-				float3 normal: NORMAL;
-				float4 texcoord : TEXCOORD0;
-				float4 color : COLOR;
-			};
-
-
-			struct v2f
-			{
-				float4 pos : POSITION;
-				float2 uv : TEXCOORD0;
-				float3 worldNormal : TEXCOORD1;
-				float3 viewDir : TEXCOORD2;
-				float3 worldPos : TEXCOORD3;
-				float4 vertColor : COLOR;
-				//SHADOW_COORDS(4)
-			};
-
-			v2f vert(a2v v)
-			{
-				v2f f;
-				f.pos = UnityObjectToClipPos(v.vertex);
-				f.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
-				f.worldNormal =UnityObjectToWorldNormal(v.normal);
-				f.viewDir = WorldSpaceViewDir(v.vertex);
-				f.worldPos = mul(unity_ObjectToWorld, v.vertex);
-				f.vertColor = v.color;
-				//#if RECEIVE_SHADOW
-				//	TRANSFER_SHADOW(f);
-				//#endif
-				return f;
-			}
-
-			float4 frag(v2f f) : SV_Target
-			{
-				float3 worldViewDir = normalize(_WorldSpaceCameraPos.xyz - f.worldPos.xyz);
-				float3 worldNormalDir = normalize(f.worldNormal.xyz);
-				float3 worldLightDir = normalize(UnityWorldSpaceLightDir(f.worldPos));
-				float3 worldHalfDir = normalize(worldLightDir + worldViewDir);
-
-				float3 albedo = tex2D(_MainTex, f.uv).rgb* _MainColor.rgb;
-				float3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz*albedo;
-
-				float NdotL = dot(worldNormalDir, worldLightDir);
-				// 使用vertex color 的 R 通道作为漫反射遮罩
-				float diffuseMask = f.vertColor.r;
-	
-				float3 rim = _Shininess * pow(saturate(NdotL), _Smoothness);
-				// 使用邻域像素之间的近似导数值来对smoothstep实现抗锯齿的效果 
-				float ramp = smoothstep(0, 0.1, NdotL)*_LightColor0;
-
-		
-	
-
-				float3 diffuse = rim * _RampColor.rgb +  albedo * (ramp + _ShadowIntensity);
-
-				float oneMinusVdotN = 1 - dot(worldViewDir, worldNormalDir);
-				float specRange = oneMinusVdotN * pow(NdotL, 0.1);
-
-				// 使用邻域像素之间的近似导数值来对smoothstep实现抗锯齿的效果 
-				fixed w = fwidth(specRange)*2.0;
-				float3 specular = smoothstep(_SpecularOffset - w, _SpecularOffset + w, specRange)*_SpecularIntensity*_SpecularColor.rgb;
-
-				float3 color = diffuse + specular + ambient;
-
-				// Saturation
-				float luminance = 0.2125*color.r + 0.7154*color.g + 0.0721*color.b;
-				float3 luminanceColor = float3(luminance, luminance, luminance);
-				color = lerp(luminanceColor, color, _Saturation);
-
-				return float4(color, 1);
-			}
+			#include "FancyToonLighting.cginc"
 			ENDCG
-		}
+        }
+        Pass
+        {
+            Tags{ "LightMode" = "ForwardAdd" }
+            Cull[_Cull]
+            Blend One One
+            ZWrite Off
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            //#pragma shader_feature RECEIVE_SHADOW
+            #pragma multi_compile_fwdadd
+            #pragma target 3.0
+
+            #include "FancyToonLighting.cginc"
+            ENDCG
+        }
 	}
 	Fallback "Diffuse"
 }
