@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Outfit
-  m_Shader: {fileID: 4800000, guid: 7f74116016db84d688aa4f6dc59a06f9, type: 3}
+  m_Shader: {fileID: 4800000, guid: e49eabc52691d474a9df7de6b6664e8c, type: 3}
   m_ShaderKeywords: N_F_O_ON N_F_SS_ON _ALPHABASECUTOUT_ON _REVEIVESHADOW_ON _RIMLIGHTINLIGHT_ON
     _SELFLITHIGHCONTRAST_ON
   m_LightmapFlags: 4
@@ -108,6 +108,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SSSTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SecondaryCutout:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -125,6 +129,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - TransPower: 10
     - _AlphaBaseCutout: 1
     - _AmbientIntensity: 0.574
     - _BumpScale: 1
@@ -143,7 +148,7 @@ Material:
     - _EnableTextureTransparent: 0
     - _EnvironmentalLightingIntensity: 1
     - _FarDistanceMaxWidth: 10
-    - _Farthest_Distance: 11.3
+    - _Farthest_Distance: 16
     - _GIFlatShade: 0
     - _GIShadeThreshold: 0
     - _GlossColorPower: 10
@@ -271,7 +276,7 @@ Material:
     - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _NoiseColor: {r: 1, g: 0.6878892, b: 0, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.3584906, g: 0.13735393, b: 0, a: 1}
     - _OutlineOffset: {r: 0, g: 0, b: 0, a: 1}
     - _OverallShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _RampColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}

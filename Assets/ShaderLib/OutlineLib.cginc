@@ -29,7 +29,7 @@ v2f outline_vert(a2v v)
    
     float dist2Cam = distance(pos.xyz, _WorldSpaceCameraPos.xyz);
 	float factor = smoothstep(_Nearest_Distance, _Farthest_Distance, dist2Cam);
-	factor = clamp(factor, 0.1, 0.3);
+	factor = clamp(factor, 0.05, 0.3);
 
 
 	// Normal transformation is different from normal transformation

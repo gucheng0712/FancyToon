@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hair
-  m_Shader: {fileID: 4800000, guid: 7f74116016db84d688aa4f6dc59a06f9, type: 3}
+  m_Shader: {fileID: 4800000, guid: e49eabc52691d474a9df7de6b6664e8c, type: 3}
   m_ShaderKeywords: N_F_O_ON N_F_SS_ON TCP2_RAMPTEXT _ALPHABASECUTOUT_ON _DYNAMICNOISEOUTLINE_ON
     _ENABLELIGHTFALLOFF_ON _FRESNELONLIGHT_ON _REVEIVESHADOW_ON _RIMLIGHTINLIGHT_ON
     _SHADOWMASKGLOSSTEXTURE_ON _SHOWSHADOWTONLIGHT_ON _USEGILIGHTING_ON
@@ -109,6 +109,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 948e1b7327c293a4081ba3c18eaab19f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SSSTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SecondaryCutout:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -142,6 +146,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - TransPower: 10
     - _AdjustLightDirectionalLight: 1
     - _AdjustLightPointSpotlight: 1
     - _AlphaBaseCutout: 1
@@ -167,7 +172,7 @@ Material:
     - _EnableTextureTransparent: 0
     - _EnvironmentalLightingIntensity: 1
     - _FarDistanceMaxWidth: 10
-    - _Farthest_Distance: 11.3
+    - _Farthest_Distance: 16
     - _FresnelFill: 1
     - _FresnelIntensity: 0
     - _FresnelOnLight: 1
@@ -329,7 +334,7 @@ Material:
     - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _NoiseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0.3018868, g: 0.3004628, b: 0.3004628, a: 1}
+    - _OutlineColor: {r: 0.3584906, g: 0.13735393, b: 0, a: 1}
     - _OutlineOffset: {r: 0, g: 0, b: 0, a: 1}
     - _OverallShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _RampColor: {r: 1, g: 1, b: 1, a: 1}
