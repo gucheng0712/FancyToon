@@ -10,6 +10,7 @@ struct a2v
 	float4 vertex : POSITION;
 	float3 normal: NORMAL;
 	float4 texcoord : TEXCOORD0;
+    float4 tangent: TANGENT;
 	//float4 color : COLOR;
 };
 
@@ -20,6 +21,12 @@ struct v2f
 	float3 worldNormal : TEXCOORD1;
 	float3 viewDir : TEXCOORD2;
 	float3 worldPos : TEXCOORD3;
+    #if defined(PER_FRAGMENT_BINORMAL)
+        float4 worldTangent : TEXCOORD4;
+    #else 
+        float3 worldTangent : TEXCOORD4;
+        float3 binormal: TEXCOORD5;
+    #endif
 	//float4 vertColor : COLOR;
 	//SHADOW_COORDS(4)
 };
@@ -28,10 +35,18 @@ v2f vert(a2v v)
 {
 	v2f f;
 	f.pos = UnityObjectToClipPos(v.vertex);
-	f.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
-	f.worldNormal =UnityObjectToWorldNormal(v.normal);
-	f.viewDir = WorldSpaceViewDir(v.vertex);
-	f.worldPos = mul(unity_ObjectToWorld, v.vertex);
+    f.worldNormal =UnityObjectToWorldNormal(v.normal);
+    f.viewDir = WorldSpaceViewDir(v.vertex);
+    f.worldPos = mul(unity_ObjectToWorld, v.vertex);
+    
+    #if defined(PER_FRAGMENT_BINORMAL)
+        f.worldTangent = float4(UnityObjectToWorldDir(v.tangent.xyz),v.tangent.w);
+    #else
+        f.worldTangent = UnityObjectToWorldDir(v.tangent.xyz);
+        f.binormal = CreateBinormal(f.worldNormal,f.worldTangent,v.tangent.w);
+    #endif    
+    
+    f.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
 	//f.vertColor = v.color;
 	//#if RECEIVE_SHADOW
 	//	TRANSFER_SHADOW(f);
@@ -49,8 +64,25 @@ WorldVec ComputeWorldVector(v2f f)
     return worldVec;
 }
 
+void InitNormal(inout v2f f)
+{
+    float3 tangentSpaceNormal = UnpackScaleNormal(tex2D(_NormalMap,f.uv.xy),_BumpScale);
+     #if defined(PER_FRAGMENT_BINORMAL)
+        float3 binormal = CreateBinormal(f.normal, f.tangent.xyz, f.tangent.w);
+    #else
+        float3 binormal = f.binormal;
+    #endif
+    
+    f.worldNormal = normalize(
+        tangentSpaceNormal.x * f.worldTangent +
+        tangentSpaceNormal.y * binormal +
+        tangentSpaceNormal.z * f.worldNormal
+    );
+}
+
 float4 frag(v2f f) : SV_Target
 {
+    InitNormal(f);
 	WorldVec world = ComputeWorldVector(f);
 
     float NdotL = ClampedDot(world.normalDir, world.lightDir);
@@ -60,7 +92,7 @@ float4 frag(v2f f) : SV_Target
 	
     float3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz*albedo;
 
-	float3 rim = _Shininess * pow(NdotL*NdotL, _Smoothness);
+	float3 rim = _Shininess * pow(NdotL * NdotL, _Smoothness);
 	// 使用邻域像素之间的近似导数值来对smoothstep实现抗锯齿的效果 
 	float ramp = smoothstep(0, 0.1, NdotL);   
 

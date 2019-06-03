@@ -22,12 +22,18 @@ Shader "Toon/FancyToon_MultiLight"
 
 		[Header(Specular Settings)]
 		_SpecularColor("Specular Color",Color) = (1,1,1,1)
-       _SpecularRange("Specular Range",Range(0.001,5)) = 0.1
+        _SpecularRange("Specular Range",Range(0.001,5)) = 0.1
 		_SpecularIntensity("Specular Intensity",Range(0, 1)) = 0.01
 		_SpecularOffset("Specular Offset",Range(0.5,1)) = 0.6
 
 		[Space(20)]
+        
+        [Header(NormalMap Settings)]
+        _NormalMap("Normal Map", 2D) = "bump"{}
+        _BumpScale("BumpScale",Float) = 1
 
+        [Space(20)]
+        
 		[Header(Outline Settings)]
 		_OutlineWidth("Outline Width", Range(0,0.1)) = 0.002
 		_OutlineColor("OutlineColor", Color) = (0,0,0,0)
@@ -46,6 +52,13 @@ Shader "Toon/FancyToon_MultiLight"
 		_Saturation("Color Saturation",Range(0.5,3)) = 1.0
         
 	}
+    
+    CGINCLUDE
+
+    #define BINORMAL_PER_FRAGMENT
+
+    ENDCG
+    
 	SubShader
 	{
 		Tags { "RenderType" = "Opaque" "Queue" = "Geometry"}

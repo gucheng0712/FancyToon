@@ -14,4 +14,8 @@ inline float3 Saturation(float3 color, float value)
 	return lerp(luminanceColor, color, value);
 }
 
-
+// Create the binormal
+float3 CreateBinormal (float3 normal, float3 tangent, float binormalSign) {
+    return cross(normal, tangent.xyz) *
+        (binormalSign * unity_WorldTransformParams.w);
+}

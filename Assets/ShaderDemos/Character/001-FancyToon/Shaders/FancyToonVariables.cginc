@@ -7,6 +7,7 @@
 }; 
 
 sampler2D _MainTex; float4 _MainTex_ST;
+sampler2D _NormalMap; float _BumpScale;
 float _Smoothness;
 float _Shininess;
 float4 _RampColor;
@@ -17,4 +18,5 @@ fixed _SpecularIntensity;
 fixed _SpecularOffset;
 fixed _ShadowIntensity;
 float _Saturation;
+
 
