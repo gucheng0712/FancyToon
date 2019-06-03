@@ -1,4 +1,6 @@
-﻿#include "Lighting.cginc"
+﻿// Upgrade NOTE: replaced 'defined RECEIVE_SHADOW' with 'defined (RECEIVE_SHADOW)'
+
+#include "Lighting.cginc"
 #include "UnityCG.cginc"
 #include "AutoLight.cginc"
 #include "FancyToonUtility.cginc"
@@ -28,8 +30,11 @@ struct v2f
         float3 binormal: TEXCOORD5;
     #endif
 	//float4 vertColor : COLOR;
-	//SHADOW_COORDS(4)
+
+	SHADOW_COORDS(6)
+
 };
+
 
 v2f vert(a2v v)
 {
@@ -48,9 +53,9 @@ v2f vert(a2v v)
     
     f.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
 	//f.vertColor = v.color;
-	//#if RECEIVE_SHADOW
-	//	TRANSFER_SHADOW(f);
-	//#endif
+
+    TRANSFER_SHADOW(f);
+
 	return f;
 }
 
@@ -97,16 +102,18 @@ float4 frag(v2f f) : SV_Target
 	float ramp = smoothstep(0, 0.1, NdotL);   
 
 	float3 diffuse = rim * _RimColor.rgb +  albedo * (ramp + _ShadowIntensity);
-
+    
+    
     // 基于视角的高光
 	float specRange = (1 - NdotV) * pow(NdotL, _SpecularRange);
 
 	// 使用邻域像素之间的近似导数值来对smoothstep实现抗锯齿的效果 
 	fixed w = fwidth(specRange)*2.0;
 	float3 specular = smoothstep(_SpecularOffset - w, _SpecularOffset + w, specRange) * _SpecularIntensity * _SpecularColor.rgb;
-    
+
     // 添加灯光的attenuation
-    UNITY_LIGHT_ATTENUATION(atten,0,f.worldPos); 
+    UNITY_LIGHT_ATTENUATION(atten,f,f.worldPos);
+ 
     
 	float3 color = (diffuse + specular) + ambient;
     

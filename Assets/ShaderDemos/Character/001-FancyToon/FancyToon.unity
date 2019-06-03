@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18385732, g: 0.22905242, b: 0.3034035, a: 1}
+  m_IndirectSpecularColor: {r: 0.18385674, g: 0.22905225, b: 0.30340275, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -811,7 +811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 50a0208afad970f42b91e82ff62fab00, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 50a0208afad970f42b91e82ff62fab00, type: 3}
       propertyPath: m_LocalPosition.x
@@ -944,7 +944,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339003425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.664, y: 1.723, z: 0.695}
+  m_LocalPosition: {x: -0.012, y: 1.415, z: 0.702}
   m_LocalScale: {x: 0.53605, y: 0.53605, z: 0.53605}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1081,13 +1081,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634818601}
-  m_LocalRotation: {x: 0.009978666, y: 0.948997, z: -0.26481894, w: 0.17081022}
+  m_LocalRotation: {x: -0.04004884, y: 0.9641852, z: -0.26196328, w: -0.010881028}
   m_LocalPosition: {x: -0.0508, y: 1.4031, z: 0.4004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 30.4, y: 158.3, z: -4.7570004}
+  m_LocalEulerAnglesHint: {x: 30.4, y: 180, z: -4.7570004}
 --- !u!1 &1787800210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,8 +1431,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980941393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.948, y: 1.696, z: 0.927}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.949, y: 2.189, z: 1.441}
+  m_LocalScale: {x: 0.5648169, y: 0.5648169, z: 0.5648169}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8

@@ -85,13 +85,33 @@ Shader "Toon/FancyToon"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            //#pragma shader_feature RECEIVE_SHADOW
+            #pragma shader_feature RECEIVE_SHADOW
+            #if RECEIVE_SHADOW
             //#pragma multi_compile_fwdbase
+            #endif
             #pragma target 3.0
 
             #include "FancyToonLighting.cginc"
             ENDCG
         }
+        
+        Pass
+        {
+            Tags {
+                "LightMode" = "ShadowCaster"
+            }
+
+            CGPROGRAM
+
+            #pragma target 3.0
+            //#pragma multi_compile_shadowcaster
+            #pragma vertex MyShadowVertexProgram
+            #pragma fragment MyShadowFragmentProgram
+
+            #include "FancyToonShadow.cginc"
+
+            ENDCG
+        }
     }
-    Fallback "Diffuse"
+   // Fallback "Diffuse"
 }
