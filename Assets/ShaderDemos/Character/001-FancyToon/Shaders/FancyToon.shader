@@ -14,9 +14,9 @@ Shader "Toon/FancyToon"
         [Header(Main Settings)]
         _MainTex("Texture", 2D) = "white" {}
         _MainColor("MainColor", Color) = (1,1,1,1)
-        _Smoothness("Smoothness", Range(0.01,5)) = 0.2
-        _Shininess("Shininess", Range(0,1)) = 0.7
-        _RampColor("RampColor", Color) = (0.5,0.5,0.5,1)
+        _Shininess("_Shininess", Range(0.01,5)) = 0.2
+        _RimScale("_RimScale", Range(0,1)) = 0.7
+        _RimColor("RampColor", Color) = (0.5,0.5,0.5,1)
 
         [Space(20)]
 

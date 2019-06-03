@@ -8,9 +8,9 @@
 
 sampler2D _MainTex; float4 _MainTex_ST;
 sampler2D _NormalMap; float _BumpScale;
-float _Smoothness;
+float _RimScale;
 float _Shininess;
-float4 _RampColor;
+float4 _RimColor;
 float4 _MainColor;
 fixed4 _SpecularColor;
 fixed _SpecularRange;

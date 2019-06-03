@@ -109,6 +109,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 948e1b7327c293a4081ba3c18eaab19f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _RampTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SSSTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -240,7 +244,7 @@ Material:
     - _OutlineFactor: 0
     - _OutlineMode: 0
     - _OutlineNoiseIntensity: 0
-    - _OutlineWidth: 0.0264
+    - _OutlineWidth: 0.013
     - _OutlineWidthAffectedByViewDistance: 0
     - _OutlineZPostionInCamera: 0
     - _OverallShadowColorPower: 1
@@ -262,6 +266,7 @@ Material:
     - _RimLightInLight: 1
     - _RimLightSoftness: 1
     - _RimLightUnfill: 1.5
+    - _RimScale: 1
     - _Saturation: 1.33
     - _SaturationPointSpotlight: 1
     - _SelfLitHighContrast: 0
@@ -292,7 +297,7 @@ Material:
     - _ShadowTLightThreshold: 50
     - _ShadowTShadowSize: 0
     - _ShadowTShadowThreshold: 0
-    - _Shininess: 0.275
+    - _Shininess: 3.1
     - _ShowInAmbientLightShadowIntensity: 1
     - _ShowInAmbientLightShadowThreshold: 0.4
     - _ShowNormal: 0
@@ -338,6 +343,7 @@ Material:
     - _OutlineOffset: {r: 0, g: 0, b: 0, a: 1}
     - _OverallShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _RampColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _RimLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _SColor: {r: 0.6509434, g: 0.4492512, b: 0.34082413, a: 1}
     - _SelfLitColor: {r: 1, g: 1, b: 1, a: 1}

@@ -92,11 +92,11 @@ float4 frag(v2f f) : SV_Target
 	
     float3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz*albedo;
 
-	float3 rim = _Shininess * pow(NdotL * NdotL, _Smoothness);
+	float3 rim = _RimScale * pow(NdotV * NdotL, _Shininess);
 	// 使用邻域像素之间的近似导数值来对smoothstep实现抗锯齿的效果 
 	float ramp = smoothstep(0, 0.1, NdotL);   
 
-	float3 diffuse = rim * _RampColor.rgb +  albedo * (ramp + _ShadowIntensity);
+	float3 diffuse = rim * _RimColor.rgb +  albedo * (ramp + _ShadowIntensity);
 
     // 基于视角的高光
 	float specRange = (1 - NdotV) * pow(NdotL, _SpecularRange);
