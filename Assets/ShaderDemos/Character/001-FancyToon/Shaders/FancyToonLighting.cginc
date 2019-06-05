@@ -32,7 +32,7 @@ struct v2f
 	//float4 vertColor : COLOR;
 
 	SHADOW_COORDS(6)
-
+   
 };
 
 
@@ -101,11 +101,12 @@ float4 frag(v2f f) : SV_Target
 	// 使用邻域像素之间的近似导数值来对smoothstep实现抗锯齿的效果 
 	float ramp = smoothstep(0, 0.1, NdotL);   
 
-	float3 diffuse = rim * _RimColor.rgb +  albedo * (ramp + _ShadowIntensity);
+	float3 diffuse = rim  +  albedo * (ramp + _ShadowIntensity);
     
-    
+    // _LightMask的r分量用于高光遮罩
+    float1 specularMask = tex2D(_LightMask,f.uv).r;
     // 基于视角的高光
-	float specRange = (1 - NdotV) * pow(NdotL, _SpecularRange);
+	float specRange = (1 - NdotV) * pow(NdotL, _SpecularRange) + NdotV * specularMask;
 
 	// 使用邻域像素之间的近似导数值来对smoothstep实现抗锯齿的效果 
 	fixed w = fwidth(specRange)*2.0;

@@ -397,11 +397,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100022, guid: 6136f08775e41b5409bc7e21c2eaf4f6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 6136f08775e41b5409bc7e21c2eaf4f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.9920967
+      value: 0.872
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 6136f08775e41b5409bc7e21c2eaf4f6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1608,6 +1608,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FancyToon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376647920547936573, guid: 3c03038fcae3f8e40abb01373df3a7c6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3376647920547936572, guid: 3c03038fcae3f8e40abb01373df3a7c6,
         type: 3}

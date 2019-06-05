@@ -84,8 +84,16 @@ Material:
         m_Texture: {fileID: 2800000, guid: a496fc0be3297ff4eb4b2460b9feb4a8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _LightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _LightMapTex:
         m_Texture: {fileID: 2800000, guid: 3d30ba9bdf43a4d928f34ec66b463a2f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMask:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -373,7 +381,7 @@ Material:
     - _RimLight_FeatherOff: 0
     - _RimLight_InsideMask: 0.0001
     - _RimLight_Power: 0.1
-    - _RimScale: 0.71
+    - _RimScale: 0.378
     - _Rotate_EmissiveUV: 0
     - _Rotate_MatCapUV: 0
     - _Rotate_NormalMapForMatCapUV: 0
@@ -403,12 +411,12 @@ Material:
     - _ShadowTIntensity: 1
     - _ShadowTLightThreshold: 50
     - _ShadowTShadowThreshold: 0
-    - _Shininess: 1
+    - _Shininess: 0.873
     - _ShowInAmbientLightShadowIntensity: 1
     - _ShowInAmbientLightShadowThreshold: 0.4
     - _ShowNormal: 0
     - _SmoothObjectNormal: 0
-    - _Smoothness: 1
+    - _Smoothness: 5
     - _SmoothnessTextureChannel: 0
     - _SpecIntensity: 0.278
     - _SpecPower: 20
@@ -470,7 +478,7 @@ Material:
     - _OutlineOffset: {r: 0, g: 0, b: 0, a: 1}
     - _Outline_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _OverallShadowColor: {r: 1, g: 0.36320752, b: 0.36320752, a: 1}
-    - _RampColor: {r: 1, g: 0.6710329, b: 0.6179246, a: 1}
+    - _RampColor: {r: 1, g: 0.9877456, b: 0.9858491, a: 1}
     - _RimColor: {r: 0.9622642, g: 0.64907444, b: 0.64907444, a: 1}
     - _RimLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _SSSColor: {r: 1, g: 1, b: 1, a: 1}

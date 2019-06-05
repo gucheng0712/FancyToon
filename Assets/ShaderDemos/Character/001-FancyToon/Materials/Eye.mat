@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Eye
-  m_Shader: {fileID: 4800000, guid: e49eabc52691d474a9df7de6b6664e8c, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7f74116016db84d688aa4f6dc59a06f9, type: 3}
   m_ShaderKeywords: N_F_O_ON N_F_SS_ON _ _ALPHABASECUTOUT_ON _EMISSIVE_SIMPLE _OUTLINE_NML
     _REVEIVESHADOW_ON _RIMLIGHTINLIGHT_ON _SELFLITHIGHCONTRAST_ON
   m_LightmapFlags: 4
@@ -78,6 +78,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ILMTex:
         m_Texture: {fileID: 2800000, guid: f6df8509372384f48bb3fa1a762ba9b3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -342,7 +346,7 @@ Material:
     - _RimLight_FeatherOff: 0
     - _RimLight_InsideMask: 0.0001
     - _RimLight_Power: 0.1
-    - _RimScale: 0.7
+    - _RimScale: 0
     - _Rotate_EmissiveUV: 0
     - _Rotate_MatCapUV: 0
     - _Rotate_NormalMapForMatCapUV: 0
@@ -370,7 +374,7 @@ Material:
     - _ShadowTIntensity: 1
     - _ShadowTLightThreshold: 50
     - _ShadowTShadowThreshold: 0
-    - _Shininess: 0.03
+    - _Shininess: 1
     - _ShowInAmbientLightShadowIntensity: 1
     - _ShowInAmbientLightShadowThreshold: 0.4
     - _ShowNormal: 0
@@ -430,7 +434,7 @@ Material:
     - _OutlineOffset: {r: 0, g: 0, b: 0, a: 1}
     - _Outline_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _OverallShadowColor: {r: 1, g: 0.36320752, b: 0.36320752, a: 1}
-    - _RampColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _RampColor: {r: 0.7075472, g: 0.050062295, b: 0.050062295, a: 1}
     - _ReflectColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _RimColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _RimLightColor: {r: 1, g: 1, b: 1, a: 1}

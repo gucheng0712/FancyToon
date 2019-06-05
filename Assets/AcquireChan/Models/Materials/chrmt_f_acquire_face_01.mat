@@ -154,7 +154,7 @@ Material:
     m_Floats:
     - _1st2nd_Shades_Feather: 0.0001
     - _1st_ShadeColor_Feather: 0.0001
-    - _1st_ShadeColor_Step: 0.608
+    - _1st_ShadeColor_Step: 0.5
     - _2nd_ShadeColor_Feather: 0.0001
     - _2nd_ShadeColor_Step: 0
     - _Add_Antipodean_RimLight: 0
@@ -276,7 +276,7 @@ Material:
     - _anisotropicY: 0
     - _simpleUI: 0
     - _specularPower: 0
-    - _utsTechnique: 1
+    - _utsTechnique: 0
     - _utsVersion: 2.075
     m_Colors:
     - _1st_ShadeColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}

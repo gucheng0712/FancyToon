@@ -4,52 +4,38 @@ Shader "Toon/FancyToon_MultiLight"
 	Properties
 	{
 		[Enum(UnityEngine.Rendering.CullMode)]
-		_Cull("Cull Mode", Float) = 2
+        _Cull("Cull Mode", Float) = 2
 
-		[Toggle(RECEIVE_SHADOW)]
-		_ReceiveShadow("Receive Shadow?", Float) = 0
-
-		[Space(20)]
-
-		[Header(Main Settings)]
-		_MainTex("Texture", 2D) = "white" {}
-		_MainColor("MainColor", Color) = (1,1,1,1)
-		_Smoothness("Smoothness", Range(0.01,5)) = 0.2
-		_Shininess("Shininess", Range(0,1)) = 0.7
-		_RampColor("RampColor", Color) = (0.5,0.5,0.5,1)
-
-		[Space(20)]
-
-		[Header(Specular Settings)]
-		_SpecularColor("Specular Color",Color) = (1,1,1,1)
-        _SpecularRange("Specular Range",Range(0.001,5)) = 0.1
-		_SpecularIntensity("Specular Intensity",Range(0, 1)) = 0.01
-		_SpecularOffset("Specular Offset",Range(0.5,1)) = 0.6
-
-		[Space(20)]
+        [Toggle(RECEIVE_SHADOW)]
+        _ReceiveShadow("Receive Shadow?", Float) = 0
         
-        [Header(NormalMap Settings)]
+        _MainTex("Albedo", 2D) = "white" {}
+        _MainColor("MainColor", Color) = (1,1,1,1)
+        _Shininess("Shininess", Range(0.01,5)) = 0.2
+        _RimScale("RimScale", Range(0,0.5)) = 0.05
+        
         _NormalMap("Normal Map", 2D) = "bump"{}
         _BumpScale("BumpScale",Float) = 1
-
-        [Space(20)]
+    
+        _LightMask("Light Mask",2D) = "black"{} // r 通道为 高光遮罩, g:未定(阴影遮罩), b:未定(emission遮罩)
         
-		[Header(Outline Settings)]
-		_OutlineWidth("Outline Width", Range(0,0.1)) = 0.002
-		_OutlineColor("OutlineColor", Color) = (0,0,0,0)
-		_Farthest_Distance("Farthest_Distance", Float) = 10
-		_Nearest_Distance("Nearest_Distance", Float) = 0.5
-		_Outline_Sampler("Outline_Sampler", 2D) = "white" {}
+        _SpecularColor("Specular Color",Color) = (1,1,1,1)
+        _SpecularRange("Specular Range",Range(0.001,5)) = 0.1
+        _SpecularIntensity("Specular Intensity",Range(0, 1)) = 0.01
+        _SpecularOffset("Specular Offset",Range(0.5,1)) = 0.6
+               
+        _OutlineWidth("Outline Width", Range(0,0.1)) = 0.002
+        _OutlineColor("OutlineColor", Color) = (0,0,0,0)
+        _Farthest_Distance("Farthest_Distance", Float) = 10
+        _Nearest_Distance("Nearest_Distance", Float) = 0.5
+        _Outline_Sampler("Outline_Sampler", 2D) = "white" {}
 
-		[Space(20)]
+     
+        _ShadowIntensity("Shadow Intensity", Range(0,1))=0.5
 
-		[Header(Shadow Settings)]
-		_ShadowIntensity("Shadow Intensity", Range(0,1))=0.5
+        _ID("Stencil Mask ID", Int) = 1
 
-		_ID("Mask ID", Int) = 1
-
-		[Header(Other Settings)]
-		_Saturation("Color Saturation",Range(0.5,3)) = 1.0
+        _Saturation("Color Saturation",Range(0.5,3)) = 1.0
         
 	}
     
@@ -109,5 +95,5 @@ Shader "Toon/FancyToon_MultiLight"
             ENDCG
         }
 	}
-	Fallback "Diffuse"
+    CustomEditor "FancyToonGUI"
 }
