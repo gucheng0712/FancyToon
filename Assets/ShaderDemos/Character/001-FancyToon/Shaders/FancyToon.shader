@@ -10,6 +10,7 @@ Shader "Toon/FancyToon"
         _ReceiveShadow("Receive Shadow?", Float) = 0
         
         _MainTex("Albedo", 2D) = "white" {}
+        _RampTex("Ramp Texture", 2D) = "white"{}
         _MainColor("MainColor", Color) = (1,1,1,1)
         _Shininess("Shininess", Range(0.01,5)) = 0.2
         _RimScale("RimScale", Range(0,0.5)) = 0.05

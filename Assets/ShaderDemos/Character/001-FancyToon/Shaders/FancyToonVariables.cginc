@@ -20,4 +20,6 @@ fixed _SpecularOffset;
 fixed _ShadowIntensity;
 float _Saturation;
 
+sampler2D _RampTex;
+
 

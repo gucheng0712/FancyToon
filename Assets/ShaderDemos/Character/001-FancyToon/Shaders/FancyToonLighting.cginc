@@ -99,7 +99,7 @@ float4 frag(v2f f) : SV_Target
 
 	float3 rim = _RimScale * pow(NdotV * NdotL, _Shininess);
 	// 使用邻域像素之间的近似导数值来对smoothstep实现抗锯齿的效果 
-	float ramp = smoothstep(0, 0.1, NdotL);   
+	float ramp = tex2D(_RampTex, float2(NdotL*0.5+0.3,0.5));//smoothstep(0, 0.1, NdotL);   
 
 	float3 diffuse = rim  +  albedo * (ramp + _ShadowIntensity);
     
