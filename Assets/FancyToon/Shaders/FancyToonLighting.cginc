@@ -110,7 +110,10 @@ float4 frag(v2f f) : SV_Target
 
 	// 使用邻域像素之间的近似导数值来对smoothstep实现抗锯齿的效果 
 	fixed w = fwidth(specRange)*2.0;
-	float3 specular = smoothstep(_SpecularOffset - w, _SpecularOffset + w, specRange) * _SpecularIntensity * _SpecularColor.rgb;
+
+	// float3 specular = smoothstep(_SpecularOffset - w, _SpecularOffset + w, specRange) * _SpecularIntensity * _SpecularColor.rgb;
+    // 优化后的代码
+    float3 specular = saturate((specRange - (_SpecularOffset - w)) / (w*2)) * _SpecularIntensity * _SpecularColor.rgb;
 
     // 添加灯光的attenuation
     UNITY_LIGHT_ATTENUATION(atten,f,f.worldPos);
