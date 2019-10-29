@@ -21,7 +21,7 @@ Shader "Toon/FancyToon"
         _LightMask("Light Mask",2D) = "black"{} // r 通道为 高光遮罩, g:未定(阴影遮罩), b:未定(emission遮罩)
         
         _SpecularColor("Specular Color",Color) = (1,1,1,1)
-        _SpecularRange("Specular Range",Range(0.001,5)) = 0.1
+        _SpecularRange("Specular Range",Range(0.001,1)) = 0.1
         _SpecularIntensity("Specular Intensity",Range(0, 1)) = 0.01
         _SpecularOffset("Specular Offset",Range(0.5,1)) = 0.6
                

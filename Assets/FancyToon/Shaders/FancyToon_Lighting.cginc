@@ -106,7 +106,7 @@ float4 frag(v2f f) : SV_Target
     // _LightMask的r分量用于高光遮罩
     float1 specularMask = tex2D(_LightMask,f.uv).r;
     // 基于视角的高光
-	float specRange = (1 - NdotV) * pow(NdotL, _SpecularRange) + NdotV * specularMask;
+	float specRange = (1 - NdotV) * pow(NdotL, 1-_SpecularRange) + NdotV * specularMask;
 
 	// 使用邻域像素之间的近似导数值来对smoothstep实现抗锯齿的效果 
 	fixed w = fwidth(specRange)*2.0;

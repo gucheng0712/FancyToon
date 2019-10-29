@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: def_mat
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
+  m_Name: faceMaterial
+  m_Shader: {fileID: 4800000, guid: e49eabc52691d474a9df7de6b6664e8c, type: 3}
+  m_ShaderKeywords: RECEIVE_SHADOW
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -43,11 +43,19 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MainTex:
+    - _LightMask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8038e478c0d0c134cb54f1067a0016ec, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -55,32 +63,51 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Outline_Sampler:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RampTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BloomFactor: 1
     - _BumpScale: 1
+    - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FadeDistance: 0.5
     - _FadeOffset: 1
+    - _Farthest_Distance: 10
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
+    - _ID: 1
     - _LightArea: 0.51
     - _Metallic: 0
     - _Mode: 0
+    - _Nearest_Distance: 0.5
     - _OcclusionStrength: 1
     - _OutlineWidth: 0.01
     - _Parallax: 0.02
+    - _ReceiveShadow: 1
+    - _RimScale: 0.05
+    - _Saturation: 1.44
     - _SecondShadow: 0.51
+    - _ShadowIntensity: 0.5
     - _Shininess: 10
     - _SmoothnessTextureChannel: 0
     - _SpecMulti: 0.1
     - _SpecularHighlights: 1
+    - _SpecularIntensity: 0.01
+    - _SpecularOffset: 0.6
+    - _SpecularRange: 0.1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
@@ -89,5 +116,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _FirstShadowMultColor: {r: 0.9, g: 0.7, b: 0.75, a: 1}
     - _LightSpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SecondShadowMultColor: {r: 0.75, g: 0.6, b: 0.65, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
