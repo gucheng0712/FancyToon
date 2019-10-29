@@ -3,8 +3,8 @@
 #include "Lighting.cginc"
 #include "UnityCG.cginc"
 #include "AutoLight.cginc"
-#include "FancyToonUtility.cginc"
-#include "FancyToonVariables.cginc"
+#include "FancyToon_Utility.cginc"
+#include "FancyToon_Variables.cginc"
 
 
 struct a2v

@@ -31,8 +31,7 @@ Shader "Toon/FancyToon"
         _Nearest_Distance("Nearest_Distance", Float) = 0.5
         _Outline_Sampler("Outline_Sampler", 2D) = "white" {}
 
-     
-        _ShadowIntensity("Shadow Intensity", Range(0,1))=0.5
+        _ShadowIntensity("Shadow Intensity", Range(0,1)) = 0.5
 
         _ID("Stencil Mask ID", Int) = 1
 
@@ -79,7 +78,7 @@ Shader "Toon/FancyToon"
             #endif
             #pragma target 3.0
 
-            #include "FancyToonLighting.cginc"
+            #include "FancyToon_Lighting.cginc"
             ENDCG
         }
         
@@ -96,7 +95,7 @@ Shader "Toon/FancyToon"
             #pragma vertex MyShadowVertexProgram
             #pragma fragment MyShadowFragmentProgram
 
-            #include "FancyToonShadow.cginc"
+            #include "FancyToon_Shadow.cginc"
 
             ENDCG
         }

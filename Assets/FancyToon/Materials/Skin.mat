@@ -470,7 +470,7 @@ Material:
     - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
     - _LightDirection: {r: 0, g: 0, b: 1, a: 1}
     - _LightSpecColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainColor: {r: 0.9811321, g: 0.7728729, b: 0.7728729, a: 1}
+    - _MainColor: {r: 1, g: 0.9009434, b: 0.9009434, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _NoiseColor: {r: 1, g: 0.6878892, b: 0, a: 1}
     - _OutColor: {r: 0, g: 0, b: 0, a: 0}

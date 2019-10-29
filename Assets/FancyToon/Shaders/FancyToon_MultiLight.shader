@@ -75,7 +75,7 @@ Shader "Toon/FancyToon_MultiLight"
 			//#pragma multi_compile_fwdbase
 			#pragma target 3.0
 
-			#include "FancyToonLighting.cginc"
+			#include "FancyToon_Lighting.cginc"
 			ENDCG
         }
         Pass
@@ -91,7 +91,7 @@ Shader "Toon/FancyToon_MultiLight"
             #pragma multi_compile_fwdadd
             #pragma target 3.0
 
-            #include "FancyToonLighting.cginc"
+            #include "FancyToon_Lighting.cginc"
             ENDCG
         }
 	}
