@@ -11,13 +11,12 @@ sampler2D _NormalMap; float _BumpScale;
 sampler2D _LightMask;
 float _RimScale;
 float _Shininess;
-float4 _RimColor;
 float4 _MainColor;
-fixed4 _SpecularColor;
-fixed _SpecularRange;
-fixed _SpecularIntensity;
-fixed _SpecularOffset;
-fixed _ShadowIntensity;
+fixed4 _RimColor;
+fixed _RimRange;
+fixed _RimIntensity;
+fixed _RimOffset;
+fixed _IndirectionalIntensity;
 float _Saturation;
 
 sampler2D _RampTex;

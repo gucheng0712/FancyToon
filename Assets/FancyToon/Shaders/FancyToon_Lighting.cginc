@@ -98,22 +98,31 @@ float4 frag(v2f f) : SV_Target
     float3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz*albedo;
 
 	float3 rim = _RimScale * pow(NdotV * NdotL, _Shininess);
-	// 使用邻域像素之间的近似导数值来对smoothstep实现抗锯齿的效果 
-	float ramp = tex2D(_RampTex, float2(NdotL*0.5+0.3,0.5));//smoothstep(0, 0.1, NdotL);   
 
-	float3 diffuse = rim  +  albedo * (ramp + _ShadowIntensity);
+
+#if defined(RampTex)
+	float ramp = tex2D(_RampTex, float2(NdotL * 0.5 + 0.3, 0.5));// smoothstep(0, 0.1, NdotL);
+#else
+	float ramp = smoothstep(0, 0.1, NdotL);	// 使用邻域像素之间的近似导数值来对smoothstep实现抗锯齿的效果 
+#endif
+	
+	// Change the Diffuse intensity(Indirectional Light)
+	ramp += (1 - ramp) * _IndirectionalIntensity;
+
+
+	float3 diffuse = rim + albedo * ramp;
     
     // _LightMask的r分量用于高光遮罩
     float1 specularMask = tex2D(_LightMask,f.uv).r;
     // 基于视角的高光
-	float specRange = (1 - NdotV) * pow(NdotL, 1-_SpecularRange) + NdotV * specularMask;
+	float specRange = (1 - NdotV) * pow(NdotL, 1-_RimRange) + NdotV * specularMask;
 
 	// 使用邻域像素之间的近似导数值来对smoothstep实现抗锯齿的效果 
 	fixed w = fwidth(specRange)*2.0;
 
-	// float3 specular = smoothstep(_SpecularOffset - w, _SpecularOffset + w, specRange) * _SpecularIntensity * _SpecularColor.rgb;
+	//float3 specular = smoothstep(_SpecularOffset - w, _SpecularOffset + w, specRange) * _SpecularIntensity * _SpecularColor.rgb;
     // 优化后的代码
-    float3 specular = saturate((specRange - (_SpecularOffset - w)) / (w*2)) * _SpecularIntensity * _SpecularColor.rgb;
+    float3 specular = saturate((specRange - (_RimOffset - w)) / (w*2)) * _RimIntensity * _RimColor.rgb;
 
     // 添加灯光的attenuation
     UNITY_LIGHT_ATTENUATION(atten,f,f.worldPos);

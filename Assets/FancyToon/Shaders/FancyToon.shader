@@ -14,16 +14,21 @@ Shader "Toon/FancyToon"
         _MainColor("MainColor", Color) = (1,1,1,1)
         _Shininess("Shininess", Range(0.01,5)) = 0.2
         _RimScale("RimScale", Range(0,0.5)) = 0.05
+        _IndirectionalIntensity("Indirectional Intensity", Range(0,1)) = 0.5
         
         _NormalMap("Normal Map", 2D) = "bump"{}
-        _BumpScale("BumpScale",Float) = 1
+        _BumpScale("BumpScale",Range(1,5)) = 1
+		
+		_EmissionMap("Emission Map", 2D) = "white"{}
+		_EmissionColor("Emission Color", Color) = (0,0,0,1)
+
     
         _LightMask("Light Mask",2D) = "black"{} // r 通道为 高光遮罩, g:未定(阴影遮罩), b:未定(emission遮罩)
         
-        _SpecularColor("Specular Color",Color) = (1,1,1,1)
-        _SpecularRange("Specular Range",Range(0.001,1)) = 0.1
-        _SpecularIntensity("Specular Intensity",Range(0, 1)) = 0.01
-        _SpecularOffset("Specular Offset",Range(0.5,1)) = 0.6
+        _RimColor("Rim Color",Color) = (1,1,1,1)
+        _RimRange("Rim Range",Range(0.001,1)) = 0.1
+        _RimIntensity("Rim Intensity",Range(0, 1)) = 0.01
+        _RimOffset("Rim Offset",Range(0.5,1)) = 0.6
                
         _OutlineWidth("Outline Width", Range(0,0.1)) = 0.002
         _OutlineColor("OutlineColor", Color) = (0,0,0,0)
@@ -31,7 +36,6 @@ Shader "Toon/FancyToon"
         _Nearest_Distance("Nearest_Distance", Float) = 0.5
         _Outline_Sampler("Outline_Sampler", 2D) = "white" {}
 
-        _ShadowIntensity("Shadow Intensity", Range(0,1)) = 0.5
 
         _ID("Stencil Mask ID", Int) = 1
 
@@ -72,6 +76,7 @@ Shader "Toon/FancyToon"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+			#pragma shader_feature RampTex	
             #pragma shader_feature RECEIVE_SHADOW
             #if RECEIVE_SHADOW
             //#pragma multi_compile_fwdbase

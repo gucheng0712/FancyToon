@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: chrmt_com_skin_01
-  m_Shader: {fileID: 4800000, guid: 9baf30ce95c751649b14d96da3a4b4d5, type: 3}
+  m_Shader: {fileID: 4800000, guid: e49eabc52691d474a9df7de6b6664e8c, type: 3}
   m_ShaderKeywords: RECEIVE_SHADOW _ _EMISSIVE_SIMPLE _OUTLINE_NML
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -75,6 +75,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _LightMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: a5d624a7679efee45a571d3bc52907b1, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -112,7 +116,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 2800000, guid: 010da4b157470ea4f84c83d684b14d1c, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RimMask:
@@ -186,6 +190,7 @@ Material:
     - _Glossiness: 0.5
     - _HighColor_Power: 0
     - _ID: 1
+    - _IndirectionalIntensity: 0.519
     - _Inverse_MatcapMask: 0
     - _Inverse_Z_Axis_BLD: 1
     - _Is_BLD: 0
@@ -230,11 +235,14 @@ Material:
     - _Outline_Width: 0
     - _Parallax: 0.02
     - _ReceiveShadow: 1
+    - _RimIntensity: 0.948
     - _RimLight: 0
     - _RimLight_FeatherOff: 0
     - _RimLight_InsideMask: 0.0001
     - _RimLight_Power: 0.1
-    - _RimScale: 0.7
+    - _RimOffset: 0.802
+    - _RimRange: 1
+    - _RimScale: 0.151
     - _Rotate_EmissiveUV: 0
     - _Rotate_MatCapUV: 0
     - _Rotate_NormalMapForMatCapUV: 0
@@ -247,7 +255,7 @@ Material:
     - _Set_SystemShadowsToBase: 1
     - _ShadeColor_Step: 0
     - _ShadowIntensity: 0.5
-    - _Shininess: 0.7
+    - _Shininess: 0.81
     - _Smoothness: 0.2
     - _SpecularIntensity: 0.01
     - _SpecularOffset: 0.6
@@ -285,12 +293,12 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive_Color: {r: 0, g: 0, b: 0, a: 1}
     - _HighColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.8867924, g: 0.72365606, b: 0.72365606, a: 1}
+    - _MainColor: {r: 1, g: 0.8254717, b: 0.8254717, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _Outline_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _RampColor: {r: 1, g: 0.5801887, b: 0.5801887, a: 1}
-    - _RimColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor1: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
     - _RimColor2: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
     - _RimLightColor: {r: 1, g: 1, b: 1, a: 1}
