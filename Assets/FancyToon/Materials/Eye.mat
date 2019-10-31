@@ -254,6 +254,7 @@ Material:
     - _HighColor_Power: 0
     - _HighlightColorPower: 1
     - _ID: 1
+    - _IndirectionalIntensity: 0.5
     - _Intensity: 0.7
     - _Inverse_MatcapMask: 0
     - _Inverse_Z_Axis_BLD: 1
@@ -346,6 +347,7 @@ Material:
     - _ReflectionIntensity: 0
     - _ReflectionRoughtness: 0
     - _ReveiveShadow: 1
+    - _RimIntensity: 0.01
     - _RimLight: 0
     - _RimLightColorPower: 10
     - _RimLightInLight: 1
@@ -354,6 +356,8 @@ Material:
     - _RimLight_FeatherOff: 0
     - _RimLight_InsideMask: 0.0001
     - _RimLight_Power: 0.1
+    - _RimOffset: 0.6
+    - _RimRange: 0.1
     - _RimScale: 0
     - _Rotate_EmissiveUV: 0
     - _Rotate_MatCapUV: 0
