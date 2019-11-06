@@ -254,7 +254,7 @@ Material:
     - _HighColor_Power: 0
     - _HighlightColorPower: 1
     - _ID: 1
-    - _IndirectionalIntensity: 0.5
+    - _IndirectionalIntensity: 0.651
     - _Intensity: 0.7
     - _Inverse_MatcapMask: 0
     - _Inverse_Z_Axis_BLD: 1
@@ -347,7 +347,7 @@ Material:
     - _ReflectionIntensity: 0
     - _ReflectionRoughtness: 0
     - _ReveiveShadow: 1
-    - _RimIntensity: 0.01
+    - _RimIntensity: 0.722
     - _RimLight: 0
     - _RimLightColorPower: 10
     - _RimLightInLight: 1
@@ -358,11 +358,11 @@ Material:
     - _RimLight_Power: 0.1
     - _RimOffset: 0.6
     - _RimRange: 0.1
-    - _RimScale: 0
+    - _RimScale: 0.214
     - _Rotate_EmissiveUV: 0
     - _Rotate_MatCapUV: 0
     - _Rotate_NormalMapForMatCapUV: 0
-    - _Saturation: 1.33
+    - _Saturation: 1.54
     - _Scroll_EmissiveU: 0
     - _Scroll_EmissiveV: 0
     - _SelfLitHighContrast: 1
@@ -386,7 +386,7 @@ Material:
     - _ShadowTIntensity: 1
     - _ShadowTLightThreshold: 50
     - _ShadowTShadowThreshold: 0
-    - _Shininess: 1
+    - _Shininess: 1.28
     - _ShowInAmbientLightShadowIntensity: 1
     - _ShowInAmbientLightShadowThreshold: 0.4
     - _ShowNormal: 0
