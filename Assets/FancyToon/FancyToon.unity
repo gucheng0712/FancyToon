@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18385674, g: 0.22905225, b: 0.30340275, a: 1}
+  m_IndirectSpecularColor: {r: 0.18385667, g: 0.22905225, b: 0.30340302, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -295,7 +295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &778925420
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -596,8 +596,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787800210}
-  m_LocalRotation: {x: 0.001913039, y: 0.9868395, z: -0.16128026, w: 0.0115266135}
-  m_LocalPosition: {x: -0.045579053, y: 1.39, z: 1.0311719}
+  m_LocalRotation: {x: -0.01582852, y: -0.9793616, z: 0.18277022, w: -0.08482592}
+  m_LocalPosition: {x: -0.27056733, y: 1.4366794, z: 1.5191245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -675,9 +675,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9885b209f073ae64faa4f4d1244ab6b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blurMat: {fileID: 2100000, guid: a697dfa109ca2e84ea54e444490cd773, type: 2}
-  iterations: 0
-  downResolutions: 0
+--- !u!1 &1879031418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3376647920547936573, guid: 3c03038fcae3f8e40abb01373df3a7c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 3376647919725417163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1879031420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879031418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fdfc5e66672da4d93e06172ea8e3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3376647919725417163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -755,5 +770,15 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 06fdd3b131cdd409a8b3bf021a4ed24b, type: 2}
+    - target: {fileID: 8247677949538130664, guid: 3c03038fcae3f8e40abb01373df3a7c6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247677949538130664, guid: 3c03038fcae3f8e40abb01373df3a7c6,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c03038fcae3f8e40abb01373df3a7c6, type: 3}
