@@ -18,31 +18,28 @@ Shader "Toon/FancyToon"
         
         _NormalMap("Normal Map", 2D) = "bump"{}
         _BumpScale("BumpScale",Range(1,5)) = 1
-		
-		_EmissionMap("Emission Map", 2D) = "white"{}
-		_EmissionColor("Emission Color", Color) = (0,0,0,1)
+        
+        _EmissionMap("Emission Map", 2D) = "white"{}
+        _EmissionColor("Emission Color", Color) = (0,0,0,1)
 
-    
         _LightMask("Light Mask",2D) = "black"{} // r 通道为 高光遮罩, g:未定(阴影遮罩), b:未定(emission遮罩)
         
         _RimColor("Rim Color",Color) = (1,1,1,1)
         _RimRange("Rim Range",Range(0.001,1)) = 0.1
         _RimIntensity("Rim Intensity",Range(0, 1)) = 0.01
         _RimOffset("Rim Offset",Range(0.5,1)) = 0.6
-               
+        
         _OutlineWidth("Outline Width", Range(0,0.1)) = 0.002
         _OutlineColor("OutlineColor", Color) = (0,0,0,0)
         _Farthest_Distance("Farthest_Distance", Float) = 10
         _Nearest_Distance("Nearest_Distance", Float) = 0.5
         _Outline_Sampler("Outline_Sampler", 2D) = "white" {}
 
-
         _ID("Stencil Mask ID", Int) = 1
 
         _Saturation("Color Saturation",Range(0.5,3)) = 1.0
-        
     }
-   
+    
     CGINCLUDE
 
     #define BINORMAL_PER_FRAGMENT
@@ -72,14 +69,14 @@ Shader "Toon/FancyToon"
         {
             Tags{ "LightMode" = "ForwardBase" }
             Cull[_Cull]
-     
+            
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-			#pragma shader_feature RampTex	
+            #pragma shader_feature RampTex	
             #pragma shader_feature RECEIVE_SHADOW
             #if RECEIVE_SHADOW
-            //#pragma multi_compile_fwdbase
+                //#pragma multi_compile_fwdbase
             #endif
             #pragma target 3.0
 
@@ -105,6 +102,6 @@ Shader "Toon/FancyToon"
             ENDCG
         }
     }
-   // Fallback "Diffuse"
+    // Fallback "Diffuse"
     CustomEditor "FancyToonGUI"
 }
