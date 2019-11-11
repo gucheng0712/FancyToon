@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: chrmt_f_acquire_hair_01
-  m_Shader: {fileID: 4800000, guid: 2474f9c91477f4f16ab82cbe09dfdf6a, type: 3}
+  m_Shader: {fileID: 4800000, guid: e49eabc52691d474a9df7de6b6664e8c, type: 3}
   m_ShaderKeywords: N_F_O_ON N_F_SS_ON RECEIVE_SHADOW _ _ALPHABASECUTOUT_ON _EMISSIVE_SIMPLE
     _OUTLINE_NML _RIMLIGHTINLIGHT_ON _SELFLITHIGHCONTRAST_ON
   m_LightmapFlags: 3
