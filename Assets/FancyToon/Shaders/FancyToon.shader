@@ -8,13 +8,24 @@ Shader "Toon/FancyToon"
 
         [Toggle(RECEIVE_SHADOW)]
         _ReceiveShadow("Receive Shadow?", Float) = 0
-        
+        [Toggle(APPLY_IBL)]
+        _ApplyIBL("Apply IBL?",Float) = 0
+
+        _IBLCubeTex("IBL (CubeMap)",CUBE) = ""{}
         _MainTex("Albedo", 2D) = "white" {}
-        _RampTex("Ramp Texture", 2D) = "white"{}
+        _RampTex("Ramp", 2D) = "white"{}
         _MainColor("MainColor", Color) = (1,1,1,1)
-        _Shininess("Shininess", Range(0.01,5)) = 0.2
-        _RimScale("RimScale", Range(0,0.5)) = 0.05
-        _IndirectionalIntensity("Indirectional Intensity", Range(0,1)) = 0.5
+        _ShadeColor("ShadeColor",Color) = (1,1,1,1)
+        _Smoothness("Smoothness", Range(0.01,5)) = 0.2
+        _Brightness("Brightness", Range(0,0.5)) = 0.05
+
+        _Thickness("Thickness",2D) = "white"{}
+        _SssColor("SSS Color", Color)=(0,0,0,0)
+        _Attenuation("Attenuation",Range(0,5)) = 1
+        _Ambient("Ambient",Range(0,1)) = 1
+        _Distortion("Distortion",Range(0,1)) = 1
+        _SSSPower("SSS Power", Range(0,5)) = 1
+        _SSSScale("SSS Scale",Range(0,5)) = 1
         
         _NormalMap("Normal Map", 2D) = "bump"{}
         _BumpScale("BumpScale",Range(1,5)) = 1
@@ -22,12 +33,26 @@ Shader "Toon/FancyToon"
         _EmissionMap("Emission Map", 2D) = "white"{}
         _EmissionColor("Emission Color", Color) = (0,0,0,1)
 
-        _LightMask("Light Mask",2D) = "black"{} // r 通道为 高光遮罩, g:未定(阴影遮罩), b:未定(emission遮罩)
+        _LightMask("Light Mask",2D) = "white"{} // R:Specular Mask, g:AO Mask, b:Emission Mask)
         
-        _RimColor("Rim Color",Color) = (1,1,1,1)
+        [HDR]_RimColor("Rim Color",Color) = (1,1,1,1)
         _RimRange("Rim Range",Range(0.001,1)) = 0.1
         _RimIntensity("Rim Intensity",Range(0, 1)) = 0.01
         _RimOffset("Rim Offset",Range(0.5,1)) = 0.6
+
+        [Toggle(ANISOTROPIC_SPECULAR)]
+        _UseAnisotropicSpecular("Use Anisotropic Specular?", Float) = 0
+
+
+        _AnisotropicSpecularTexture("Anisotropic Specular Texture", 2D) = "white"{}
+        
+        _FirstAnisotropicSpecularOffset("First Anisotropic Specular Offset", Range(0, 30)) = 1
+        _FirstAnisotropicSpecularRange("First Anisotropic Specular Range",Range(0,5000)) = 500
+        _FirstAnisotropicSpecularStrength("First Anisotropic Specular Strength",Range(0,1)) = 1
+
+        _SecondAnisotropicSpecularOffset("Second Anisotropic Specular Offset", Range(0, 30)) = 1
+        _SecondAnisotropicSpecularRange("Second Anisotropic Specular Range",Range(0,5000)) = 500
+        _SecondAnisotropicSpecularStrength("Second Anisotropic Specular Strength",Range(0,1)) = 1
         
         _OutlineWidth("Outline Width", Range(0,0.1)) = 0.002
         _OutlineColor("OutlineColor", Color) = (0,0,0,0)
@@ -75,8 +100,10 @@ Shader "Toon/FancyToon"
             #pragma fragment frag
             #pragma shader_feature RampTex	
             #pragma shader_feature RECEIVE_SHADOW
+            #pragma shader_feature APPLY_IBL
+            #pragma shader_feature ANISOTROPIC_SPECULAR
             #if RECEIVE_SHADOW
-                //#pragma multi_compile_fwdbase
+                #pragma multi_compile_fwdbase
             #endif
             #pragma target 3.0
 
@@ -84,24 +111,23 @@ Shader "Toon/FancyToon"
             ENDCG
         }
         
+        //todo add Shadow receiver and multilight support in to future
         Pass
         {
-            Tags {
-                "LightMode" = "ShadowCaster"
-            }
+            Tags { "LightMode" = "ShadowCaster" }
 
             CGPROGRAM
 
             #pragma target 3.0
-            //#pragma multi_compile_shadowcaster
-            #pragma vertex MyShadowVertexProgram
-            #pragma fragment MyShadowFragmentProgram
+            #pragma multi_compile_shadowcaster
+            #pragma vertex vert
+            #pragma fragment frag
 
             #include "FancyToon_Shadow.cginc"
 
             ENDCG
         }
     }
-    // Fallback "Diffuse"
-    CustomEditor "FancyToonGUI"
+    Fallback "Diffuse"
+    // CustomEditor "FancyToonGUI"
 }

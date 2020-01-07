@@ -23,25 +23,25 @@ struct v2f
 v2f outline_vert(a2v v)
 {
 	v2f f;
-	
+
 	// MV transform points from object space to view space
 	float3 pos = UnityObjectToViewPos(v.vertex);
-   
-    float dist2Cam = distance(pos.xyz, _WorldSpaceCameraPos.xyz);
-	float factor = smoothstep(_Nearest_Distance, _Farthest_Distance, dist2Cam);
-	factor = clamp(factor, 0.05, 0.3);
+	float3 worldPos = mul(unity_ObjectToWorld, v.vertex);
+	float dist2Cam = distance(worldPos.xyz, _WorldSpaceCameraPos.xyz);
+	float factor = smoothstep(_Nearest_Distance, _Farthest_Distance, dist2Cam).r;
 
+	factor = clamp(factor, 0.02, 0.3);
 
 	// Normal transformation is different from normal transformation
 	// IT_MV rotates normals from object space to view space
 	float3 normal = mul((float3x3)UNITY_MATRIX_IT_MV, v.normal);
 
-	// 对于一些内凹的模型，可能发生背面面片遮挡正面面片的情况。
+	// For some concave models, the back face may cover the front face.
 	normal.z = -0.5f;
-	float3 outlineDir = normalize(normal)*factor;
+	float3 outlineDir = normalize(normal) * factor;
 
-	pos.xyz += outlineDir *_OutlineWidth;
-	f.pos = mul(UNITY_MATRIX_P, float4(pos,1));
+	pos.xyz += outlineDir * _OutlineWidth;
+	f.pos = mul(UNITY_MATRIX_P, float4(pos, 1));
 
 	return f;
 }

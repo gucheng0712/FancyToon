@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Eye
+  m_Shader: {fileID: 4800000, guid: 484180dee4d1c4c41bd7e7e9afb55235, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _IrisTex:
+        m_Texture: {fileID: 2800000, guid: 84508b93f15f2b64386ec07486afc7a3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: d5276fb656bf994418f7aa1e77aba1a4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Distort: 0
+    - _Edgewidth: 0.07
+    - _IrisScaleX: 1
+    - _IrisScaleY: 1
+    - _ParallaxStrength: 0
+    - _PupilScaleX: 0.43
+    - _PupilScaleY: 0.5
+    - _Radius: 0.3
+    - _RadiusPupil: 0.08
+    - _Scale: 10
+    - _SpecSize: 0.47
+    - _Speed: 0.41
+    - _TEXTURE: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _IrisColor: {r: 0, g: 1, b: 1, a: 1}
+    - _IrisColorOut: {r: 0, g: 0.4559915, b: 1, a: 1}
+    - _IrisEdgeColor: {r: 0, g: 0, b: 0, a: 1}
+    - _IrisTexColor: {r: 1, g: 0, b: 0, a: 1}
+    - _PupilColor: {r: 0, g: 0, b: 0, a: 1}
+    - _PupilColorOut: {r: 0, g: 0, b: 1, a: 1}
